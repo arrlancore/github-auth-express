@@ -1,3 +1,5 @@
+require("dotenv/config");
+
 var express = require("express"),
   app = express(),
   config = require("./config.js");
@@ -9,6 +11,10 @@ var githubOAuth = require("github-oauth")({
   baseURL: "http://localhost:" + port,
   loginURI: "/auth/github",
   callbackURI: "/auth/github/callback"
+});
+
+app.get("/api", function(req, res) {
+  res.end("server ready!");
 });
 
 app.get("/auth/github", function(req, res) {
