@@ -3,7 +3,7 @@ require("dotenv/config");
 var express = require("express"),
   app = express(),
   config = require("./config.js");
-port = 9292;
+port = process.env.PORT || 9292;
 
 var githubOAuth = require("github-oauth")({
   githubClient: config.GITHUB_KEY,
